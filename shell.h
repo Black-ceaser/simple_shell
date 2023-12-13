@@ -106,6 +106,71 @@ typedef struct builtin
 } builtin_table;
 
 char **strtow(char *, char *);
+char **strtow2(char *, char );
+
+int bfree(void **);
+
+int _strcmp(char *, char *);
+char *starts_with(const char *, const char *);
+char *_strcat(char *, char *);
+
+char *_strchr(char *, char );
+char *_strncat(char *, char *, int);
+char *_strncpy(char *, char *, int);
+
+int interactive(info_t *);
+int is_delim(char , char *);
+int _isalpha(int );
+int _atoi(char *);
+
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
+
+int _myexit(info_t *);
+int _mycd(info_t *);
+int _myhelp(info_t *);
+
+int _myhistory(info_t *);
+int _myalias(info_t *);
+
+ssize_t get_input(info_t *);
+int _getline(info_t *, char **, size_t *);
+void sigintHandler(int);
+
+int _myenv(info_t *);
+int _myunsetenv(info_t *);
+int populate_env_list(info_t *);
+char *_getenv(info_t *, const char *);
+int _mysetenv(info_t *);
+
+void _eputs(char *);
+int _eputchar(char);
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
+
+char *_strcpy(char *, char *);
+char *_strdup(const char *);
+void _puts(char *);
+int _putchar(char);
+
+
+list_t *add_node(list_t **, const char *, int);
+list_t *add_node_end(list_t **, const char *, int);
+size_t print_list_str(const list_t *);
+int delete_node_at_index(list_t **, unsigned int);
+void free_list(list_t **);
+
+int loophsh(char **);
+
+
+int _erratoi(char *);
+void print_error(info_t *, char *);
+int print_d(int, int);
+char *convert_number(long int, int, int);
+void remove_comments(char *);
+
 
 
 #endif /*SHELL_HEADER_FILE*/
