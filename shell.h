@@ -171,6 +171,21 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
+char *_memset(char *, char, unsigned int);
+void ffree(char **);
+void *_realloc(void *, unsigned int, unsigned int);
+
+
+
+int is_cmd(info_t *, char *);
+char *dup_chars(char *, int, int);
+char *find_path(info_t *, char *, char *);
+
+
+
+
+
+
 
 
 #endif /*SHELL_HEADER_FILE*/
