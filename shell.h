@@ -73,8 +73,8 @@ typedef struct passinfo
 	char **argv;
 	char *path;
 	int argc;
-	int err_num;
 	unsigned int line_count;
+	int err_num;
 	int linecount_flag;
 	char *fname;
 	list_t *env;
@@ -182,10 +182,32 @@ char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
 
+char **get_environ(info_t *);
+int _unsetenv(info_t *, char *);
+int _setenv(info_t *, char *, char *);
+
+char *get_history_file(info_t *info);
+int write_history(info_t *info);
+int read_history(info_t *info);
+int build_history_list(info_t *info, char *buf, int linec);
+int renumber_history(info_t *info);
+
+size_t list_len(const list_t *);
+char **list_to_strings(list_t *);
+size_t print_list(const list_t *);
+list_t *node_starts_with(list_t *, char *, char);
+ssize_t get_node_index(list_t *, list_t *);
 
 
+int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replace_alias(info_t *);
+int replace_vars(info_t *);
+int replace_string(char **, char *);
 
+void clear_info(info_t *);
+void set_info(info_t *, char **);
+void free_info(info_t *, int);
 
-
-
+int _strlen(char *);
 #endif /*SHELL_HEADER_FILE*/

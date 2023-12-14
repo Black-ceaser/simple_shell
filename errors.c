@@ -45,7 +45,7 @@ int _eputchar(char c)
  */
 int _putfd(char c, int fd)
 {
-	static in i;
+	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
@@ -68,15 +68,11 @@ int _putsfd(char *str, int fd)
 	int i = 0;
 
 	if (!str)
+		return (0);
+
+	while (*str)
 	{
-		u += _putsfd(*str++, fd);
+		i += _putfd(*str++, fd);
 	}
 	return (i);
 }
-
-
-
-
-
-
-
